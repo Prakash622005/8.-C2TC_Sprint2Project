@@ -1,0 +1,71 @@
+<div class="container">
+  <h2>Employee Management</h2>
+
+  <form #empForm="ngForm" (ngSubmit)="submitEmployee()">
+    <!-- Your existing inputs -->
+    <input type="text" name="name" [(ngModel)]="employee.name" placeholder="Employee Name" required />
+    <input type="text" name="position" [(ngModel)]="employee.position" placeholder="Position" required />
+    <input type="number" name="salary" [(ngModel)]="employee.salary" placeholder="Salary" required min="1"/>
+    <button type="submit" [disabled]="isSubmitting || empForm.invalid">
+      {{ isEditMode ? 'Update Employee' : 'Add Employee' }}
+    </button>
+  </form>
+
+  <!-- NEW: Separator -->
+  <hr class="form-separator">
+
+  <!-- NEW: Table Container -->
+  <div class="table-container">
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Salary</th>
+        <th>Actions</th>
+      </tr>
+      <tr *ngFor="let emp of employees">
+        <td>{{ emp.id }}</td>
+        <td>{{ emp.name }}</td>
+        <td>{{ emp.position }}</td>
+        <td>{{ emp.salary }}</td>
+        <td>
+          <button type="button" (click)="editEmployee(emp)">Edit</button> 
+          <button type="button" (click)="deleteEmployee(emp.id)">Delete</button>
+        </td>
+      </tr>
+    </table>
+    <div>
+  <!-- Your existing content: h2, form, separator, table -->
+  
+  <!-- NEW: Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="owner-info">
+        <h3>Prakash Ramesh</h3>
+        <p class="title">Full Stack Developer</p>
+        <div class="contact-details">
+          <div class="contact-item">
+            <span class="icon">📞</span>
+            <a href="tel:+918531073839">8531073839</a>
+          </div>
+          <div class="contact-item">
+            <span class="icon">✉️</span>
+            <a href="mailto:prakashramesh3839@gmail.com">prakashramesh3839@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <span class="icon"></span>
+            <a href="https://www.linkedin.com/in/prakash-r-22633b263/">&#128188;I am In</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Employee Management System. Built with ❤️ by Prakash Ramesh</p>
+      </div>
+    </div>
+  </footer>
+  </div>
+</div>
+
+</div>
+
