@@ -24,6 +24,26 @@ export class EmployeeComponent implements OnInit {
   };
 
   employees: Employee[] = [];
+  searchTerm: string = '';
+  private alertedForSearch: boolean = false;
+
+  get filteredEmployees(): Employee[] {
+    if (!this.searchTerm) {
+      this.alertedForSearch = false;
+      return this.employees;
+    }
+    const filtered = this.employees.filter(emp =>
+      emp.name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+      (emp.id && emp.id.toString().includes(this.searchTerm))
+    );
+    if (filtered.length === 0 && this.searchTerm.trim() !== '' && !this.alertedForSearch) {
+      this.alertedForSearch = true;
+      alert('No employee found with this name or ID');
+    } else if (filtered.length > 0) {
+      this.alertedForSearch = false;
+    }
+    return filtered;
+  }
 
   constructor(
   private employeeService: EmployeeService,

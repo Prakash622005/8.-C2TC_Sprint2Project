@@ -5,7 +5,7 @@
     <!-- Your existing inputs -->
     <input type="text" name="name" [(ngModel)]="employee.name" placeholder="Employee Name" required />
     <input type="text" name="position" [(ngModel)]="employee.position" placeholder="Position" required />
-    <input type="number" name="salary" [(ngModel)]="employee.salary" placeholder="Salary" required min="1"/>
+    <input type="number" name="salary" [(ngModel)]="employee.salary" placeholder="Salary" required min="0"/>
     <button type="submit" [disabled]="isSubmitting || empForm.invalid">
       {{ isEditMode ? 'Update Employee' : 'Add Employee' }}
     </button>
@@ -13,6 +13,11 @@
 
   <!-- NEW: Separator -->
   <hr class="form-separator">
+
+  <!-- Search Bar -->
+  <div class="search-container">
+    <input type="text" [(ngModel)]="searchTerm" placeholder="Search by name or ID" />
+  </div>
 
   <!-- NEW: Table Container -->
   <div class="table-container">
@@ -24,7 +29,7 @@
         <th>Salary</th>
         <th>Actions</th>
       </tr>
-      <tr *ngFor="let emp of employees">
+      <tr *ngFor="let emp of filteredEmployees">
         <td>{{ emp.id }}</td>
         <td>{{ emp.name }}</td>
         <td>{{ emp.position }}</td>

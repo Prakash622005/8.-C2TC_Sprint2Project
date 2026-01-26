@@ -9,7 +9,7 @@ import com.company.employeebackend.service.EmployeeService;
 
 @RestController
 @RequestMapping("/api/employees")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 public class EmployeeController {
 
     private final EmployeeService service;
