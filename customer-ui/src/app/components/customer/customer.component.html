@@ -1,0 +1,66 @@
+<div class="container">
+  <h1>Customer Management System</h1>
+
+  <!-- Form Card -->
+  <div class="card">
+    <h2>{{ isEdit ? 'Update Customer' : 'Add Customer' }}</h2>
+
+    <form [formGroup]="customerForm" (ngSubmit)="saveCustomer()">
+
+  <input type="text" formControlName="name" placeholder="Name" />
+  <input type="email" formControlName="email" placeholder="Email" />
+  <input type="text" formControlName="phone" placeholder="Phone" />
+  <input type="text" formControlName="address" placeholder="Address" />
+
+  <button type="submit">
+    {{ isEdit ? 'Update' : 'Add' }}
+  </button>
+
+  <button type="button" (click)="resetForm()">Clear</button>
+</form>
+
+  </div>
+
+  <!-- Table Card -->
+  <div class="card">
+    <h2>Customer List</h2>
+
+   <table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Address</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let c of customers; trackBy: trackById">
+      <td>{{ c.customerId }}</td>
+      <td>{{ c.name }}</td>
+      <td>{{ c.email }}</td>
+      <td>{{ c.phone }}</td>
+      <td>{{ c.address }}</td>
+      <td>
+        <button class="btn edit" (click)="editCustomer(c)">Edit</button>
+        <button class="btn delete" (click)="deleteCustomer(c.customerId!)">
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+</div>
+
+<footer class="footer">
+  <h3>Prakash Module</h3>
+  <p>Phone: <a href="tel:+918531073839">+91 8531073839</a></p>
+  <p>Email: <a href="mailto:prakashramesh3839@gmail.com">prakashramesh3839@gmail.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/prakash-r-22633b263/">LinkedIn Profile</a></p>
+  <p>&copy; 2026 Prakash Module. All rights reserved.</p>
+</footer>

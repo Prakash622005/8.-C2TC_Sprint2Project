@@ -1,0 +1,208 @@
+/* Animated Gradient Background */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Container & Typography */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+h1,h3 {
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.9);
+  margin-bottom: 40px;
+}
+
+/* Glassmorphism Card Style */
+.card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h2 {
+  margin-top: 0;
+  color: #2c3e50;
+  font-size: 1.5rem;
+  border-left: 5px solid #23a6d5;
+  padding-left: 15px;
+}
+
+/* Form Inputs */
+form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+input {
+  padding: 12px 15px;
+  border: 2px solid #e8e1e1;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s;
+}
+
+input:focus {
+  border-color: #23a6d5;
+  box-shadow: 0 0 8px rgba(35, 166, 213, 0.3);
+}
+
+/* Modern Table */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px; /* Adds space between rows */
+  margin-top: 20px;
+}
+
+th {
+  color: #7f8c8d;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  padding: 12px;
+}
+
+tbody tr {
+  background: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  transition: all 0.2s;
+}
+
+tbody tr:hover {
+  background: #f8f9fa;
+  transform: scale(1.01);
+}
+
+td {
+  padding: 15px;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+td:first-child { border-left: 1px solid #f0f0f0; border-radius: 8px 0 0 8px; }
+td:last-child { border-right: 1px solid #f0f0f0; border-radius: 0 8px 8px 0; }
+
+/* Dynamic Buttons */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button[type="submit"] {
+  background: linear-gradient(135deg, #23d5ab, #23a6d5);
+  color: white;
+}
+
+button[type="button"] {
+  background: #ecf0f1;
+  color: #7f8c8d;
+}
+
+.btn.edit {
+  background: #3498db22;
+  color: #3498db;
+  margin-right: 8px;
+}
+
+.btn.edit:hover { background: #3498db; color: white; }
+
+.btn.delete {
+  background: #e74c3c22;
+  color: #e74c3c;
+}
+
+.btn.delete:hover { background: #e74c3c; color: white; }
+
+button:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Footer Styles */
+.footer {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-top: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.footer:hover {
+  transform: translateY(-5px);
+}
+
+.footer h3 {
+  margin-top: 0;
+  color: #2c3e50;
+  font-size: 1.5rem;
+  border-left: 5px solid #23a6d5;
+  padding-left: 15px;
+  margin-bottom: 20px;
+}
+
+.footer p {
+  margin: 10px 0;
+  color: #7f8c8d;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.footer p:hover {
+  color: #5a6c7d;
+}
+
+.footer a {
+  color: #23a6d5;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer a:hover {
+  color: #1a8bb4;
+  text-decoration: underline;
+}
